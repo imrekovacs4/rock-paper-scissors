@@ -33,13 +33,13 @@
   let humanChoiceLowerCase = getHumanChoice().toLowerCase();
   console.log("User's choice: " + humanChoiceLowerCase);
 
+  let humanScore = 0;
+  let computerScore = 0;
 
   function playGame () {
 
     function playRound (humanChoice, computerChoice) {
 
-      let humanScore = 0;
-      let computerScore = 0;
 
       humanChoice = humanChoiceLowerCase;
       computerChoice = computerChoiceLowerCase;
@@ -88,10 +88,9 @@
     }
     return playRound();
 
-  // If statements to display who won
-  // console.log();
- } 
+  }
 
  console.log(playGame());
-
+ console.log(humanScore);
+ 
 </script>
