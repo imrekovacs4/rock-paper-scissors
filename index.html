@@ -1,0 +1,107 @@
+<script>
+  
+  function getComputerChoice() {
+    //assign random numbers to all three choices
+    let rock = Math.random();
+    let paper = Math.random();
+    let scissors = Math.random();
+    
+    //look for the max of the three choices
+    let max = Math.max(rock, paper, scissors);
+
+    if(max == rock) {
+      return "rock"
+    } else if (max == paper) {
+      return "paper"
+    } else {
+      return "scissors"
+    }
+  }
+
+  let computerChoiceLowerCase = getComputerChoice();
+  console.log("Computer's choice: " + computerChoiceLowerCase);
+    
+
+  function getHumanChoice() {
+    // ask for choice in prompt
+    let userChoice = prompt("What is your choice?");
+    
+    // output in console
+    return userChoice
+  }
+
+  let humanChoiceLowerCase = getHumanChoice().toLowerCase();
+  console.log("User's choice: " + humanChoiceLowerCase);
+
+  let humanScore = 0;
+  let computerScore = 0;
+
+  function playRound (humanChoice, computerChoice) {
+
+    humanChoice = humanChoiceLowerCase;
+    computerChoice = computerChoiceLowerCase;
+
+    if (humanChoice == "rock" && computerChoice == "paper") {
+
+    return "You lose! Paper beats Rock"
+
+    } else if (humanChoice == "rock" & computerChoice == "scissors") {
+  
+    return "You win! Rock beats Scissors"
+
+    } else if (humanChoice == "rock" & computerChoice == "rock") {
+          
+    return "It's a draw!"
+
+    } else if (humanChoice == "paper" & computerChoice == "paper") {
+          
+    return "It's a draw"
+
+    } else if (humanChoice == "paper" & computerChoice == "rock") {
+          
+    return "You win! Paper beats Rock"
+
+    } else if (humanChoice == "paper" & computerChoice == "scissors") {
+          
+    return "You lose! Scissors beats Paper"
+
+    } else if (humanChoice == "scissors" & computerChoice == "paper") {
+          
+    return "You win! Scissors beats Paper"
+
+    } else if (humanChoice == "scissors" & computerChoice == "scissors") {
+        
+    return "It's a draw"
+    
+    } else if (humanChoice == "scissors" & computerChoice == "rock") {
+          
+    return "You lose! Rock beats Scissors"
+    
+    } else {
+    
+    return "Typo"
+    
+    }
+  }
+
+  console.log (playRound());
+
+
+
+
+  /* while ( humanscore + computerScore < 5) {
+    
+  }
+ 
+  //increment the winner's variable based on the result
+  
+
+  function playGame () {
+    
+
+    
+
+
+  }
+ */
+</script>
