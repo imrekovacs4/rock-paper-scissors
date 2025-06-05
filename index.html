@@ -1,15 +1,19 @@
 <script>
-  
+
+// 1. Create the computers choice
+// 1.1 assign random numbers to all three choices
+
+
   function getComputerChoice() {
-    //assign random numbers to all three choices
     let rock = Math.random();
     let paper = Math.random();
     let scissors = Math.random();
     
-    //look for the max of the three choices
+// 1.2 look for the max of the three choices
     let max = Math.max(rock, paper, scissors);
 
-    if(max == rock) {
+// 1.3 return one of the three based on the max numbers
+    if (max == rock) {
       return "rock"
     } else if (max == paper) {
       return "paper"
@@ -18,79 +22,89 @@
     }
   }
 
+// 1.4 output the result
   let computerChoiceLowerCase = getComputerChoice();
   console.log("Computer's choice: " + computerChoiceLowerCase);
-    
-
+   
+// 2. Create the users choice
+// 2.1 ask for choice in prompt
   function getHumanChoice() {
-    // ask for choice in prompt
+
     let userChoice = prompt("What is your choice?");
     
-    // output in console
+// 2.2 return the choice
     return userChoice
   }
 
+// 2.3 output the result
   let humanChoiceLowerCase = getHumanChoice().toLowerCase();
   console.log("User's choice: " + humanChoiceLowerCase);
 
-  let humanScore = 0;
-  let computerScore = 0;
 
-  function playGame () {
+// !!!!!!!!!!!!!!!!!!!!!!!!! To be used later
+// n.m create score variables
+let humanScore = 0;
+let computerScore = 0;
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    function playRound (humanChoice, computerChoice) {
+// 3. Play one round
+// 3.1 assign the returns inside the function
+  function playRound (humanChoice, computerChoice) {
 
+    humanChoice = humanChoiceLowerCase;
+    computerChoice = computerChoiceLowerCase;
 
-      humanChoice = humanChoiceLowerCase;
-      computerChoice = computerChoiceLowerCase;
+  // 3.2 return the possible combinations with if
+    if (humanChoice == "rock" & computerChoice == "paper") {
+    computerScore++; 
+    return "You lose! Paper beats Rock"
 
-      if (humanChoice == "rock" & computerChoice == "paper") {
-      computerScore++; 
-      return "You lose! Paper beats Rock"
+    } else if (humanChoice == "rock" & computerChoice == "scissors") {
+    humanScore++;
+    return "You win! Rock beats Scissors"
 
-      } else if (humanChoice == "rock" & computerChoice == "scissors") {
-      humanScore++;
-      return "You win! Rock beats Scissors"
-
-      } else if (humanChoice == "rock" & computerChoice == "rock") {
+    } else if (humanChoice == "rock" & computerChoice == "rock") {
             
-      return "It's a draw!"
+    return "It's a draw!"
 
-      } else if (humanChoice == "paper" & computerChoice == "paper") {
+    } else if (humanChoice == "paper" & computerChoice == "paper") {
             
-      return "It's a draw"
+    return "It's a draw"
 
-      } else if (humanChoice == "paper" & computerChoice == "rock") {
-      humanScore++;                            
-      return "You win! Paper beats Rock"
+    } else if (humanChoice == "paper" & computerChoice == "rock") {
+    humanScore++;                            
+    return "You win! Paper beats Rock"
 
-      } else if (humanChoice == "paper" & computerChoice == "scissors") {
-      computerScore++;       
-      return "You lose! Scissors beats Paper"
+    } else if (humanChoice == "paper" & computerChoice == "scissors") {
+    computerScore++;       
+    return "You lose! Scissors beats Paper"
 
-      } else if (humanChoice == "scissors" & computerChoice == "paper") {
-      humanScore++;      
-      return "You win! Scissors beats Paper"
+    } else if (humanChoice == "scissors" & computerChoice == "paper") {
+    humanScore++;      
+    return "You win! Scissors beats Paper"
 
-      } else if (humanChoice == "scissors" & computerChoice == "scissors") {
+    } else if (humanChoice == "scissors" & computerChoice == "scissors") {
       
-      return "It's a draw"
+    return "It's a draw"
       
-      } else if (humanChoice == "scissors" & computerChoice == "rock") {
-      computerScore++;
-      return "You lose! Rock beats Scissors"
+    } else if (humanChoice == "scissors" & computerChoice == "rock") {
+    computerScore++;
+    return "You lose! Rock beats Scissors"
       
-      } else {
+    } else {
       
-      return "Typo"
-      
-      }
+    return "Typo"
     }
-    return playRound();
-
   }
+  
+// 3.3 output the result of the round and the score
 
- console.log(playGame());
- console.log(humanScore);
- 
+  console.log(playRound());
+  console.log(humanScore);
+
+// 4. Create the game function
+
+function playGame() {
+
+}
 </script>
