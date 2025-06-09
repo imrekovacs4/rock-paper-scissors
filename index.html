@@ -105,6 +105,10 @@ let computerScore = 0;
 // 4. Create the game function
 
 function playGame() {
-
+  playRound (getHumanChoice(), getComputerChoice())
+  return playRound()
 }
+
+console.log(playGame());
+console.log(humanScore);
 </script>
