@@ -1,0 +1,110 @@
+<script>
+function getComputerChoice() {
+    let rock = Math.random();
+    let paper = Math.random();
+    let scissors = Math.random();
+
+    let max = Math.max(rock, paper, scissors);
+
+    if (max == rock) {
+      return "rock"
+    } else if (max == paper) {
+      return "paper"
+    } else {
+      return "scissors"
+    }
+}
+
+function getHumanChoice() {
+
+    let userChoice = prompt("What is your choice?");
+    return userChoice
+  }
+
+let humanScore = 0;
+let computerScore = 0;
+
+
+function playRound(humanChoice, computerChoice){
+  humanChoice = getHumanChoice().toLowerCase();
+  computerChoice = getComputerChoice();
+
+  if (humanChoice == "rock" & computerChoice == "paper") {
+    computerScore++;
+    console.log("Computer's choice: " + computerChoice);
+    return "You lose! Paper beats Rock"
+    
+    } else if (humanChoice == "rock" && computerChoice == "scissors") {
+    humanScore++;
+    console.log("Computer's choice: " + computerChoice);
+    return "You win! Rock beats Scissors"
+
+    } else if (humanChoice == "rock" && computerChoice == "rock") {
+    console.log("Computer's choice: " + computerChoice);            
+    return "It's a draw!"
+
+    } else if (humanChoice == "paper" && computerChoice == "paper") {
+    console.log("Computer's choice: " + computerChoice);
+    return "It's a draw"
+
+    } else if (humanChoice == "paper" && computerChoice == "rock") {
+    humanScore++;
+    console.log("Computer's choice: " + computerChoice);
+    return "You win! Paper beats Rock"
+
+    } else if (humanChoice == "paper" && computerChoice == "scissors") {
+    computerScore++;
+    console.log("Computer's choice: " + computerChoice);
+    return "You lose! Scissors beats Paper"
+
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+    humanScore++;
+    console.log("Computer's choice: " + computerChoice);
+    return "You win! Scissors beats Paper"
+
+    } else if (humanChoice == "scissors" && computerChoice == "scissors") {
+    console.log("Computer's choice: " + computerChoice);
+    return "It's a draw"
+      
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+    return "You lose! Rock beats Scissors"
+    console.log("Computer's choice: " + computerChoice);
+    computerScore++;
+      
+    } else {
+    console.log("Computer's choice: " + computerChoice);
+    return "Typo"
+    }
+}
+
+// A loopot valahogy egy funkcióba beletenni
+/*
+function playGame() {
+
+  for(i = 0; i <= 4; i++) {
+    let result = console.log(playRound());
+    if (result == "You win! Rock beats Scissors") {
+      return "Human "+ getHumanScore + " - " + getComputerScore + " Computer"
+    } else if (result == "You win! Paper beats Rock") {
+      return "Human "+ getHumanScore + " - " + getComputerScore + " Computer"
+    } else if (result == "You win! Scissors beats Paper") {
+      return "Human "+ getHumanScore + " - " + getComputerScore + " Computer"
+    } else if (result == "You lose! Paper beats Rock") {
+      return "Human "+ getHumanScore + " - " + getComputerScore + " Computer"
+    } else if (result == "You lose! Scissors beats Paper") {
+      return "Human "+ getHumanScore + " - " + getComputerScore + " Computer"
+    } else if (result == "You lose! Rock beats Scissors") {
+      return "Human "+ getHumanScore + " - " + getComputerScore + " Computer"
+    }
+  }
+}
+
+*/
+
+for(i = 0; i <= 4; i++) {
+  console.log(playRound());
+  console.log("Human "+ humanScore + " - " + computerScore + " Computer");
+}
+
+
+</script>
